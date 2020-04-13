@@ -27,18 +27,7 @@ private class AnimatingShapeLayer: CAShapeLayer {
  * A layer whose corners are rounded with a continuous mask (“squircle“). For the button
  */
 
-
-protocol ContinuousMaskLayer {
-    var continuousCornerRadius: CGFloat { get set }
-    
-    var roundedCorners: UIRectCorner { get set }
-}
-
-/**
- * A layer whose corners are rounded with a continuous mask (“squircle“). For the button
- */
-
-class ContinuousMaskLayerButton: CALayer, ContinuousMaskLayer {
+class ContinuousMaskLayerButton: CALayer {
 
     /// The corner radius.
     var continuousCornerRadius: CGFloat = 0 {
@@ -95,7 +84,7 @@ class ContinuousMaskLayerButton: CALayer, ContinuousMaskLayer {
  * A layer whose corners are rounded with a continuous mask (“squircle“). For the main view
  */
 
-class ContinuousMaskLayerView: CALayer, ContinuousMaskLayer {
+class ContinuousMaskLayerView: CALayer {
 
     /// The corner radius.
     var continuousCornerRadius: CGFloat = 0 {
