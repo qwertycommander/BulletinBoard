@@ -9,7 +9,7 @@ import UIKit
  * A view with rounded corners.
  */
 
-class RoundedView: UIView, RoundedViewProtocol {
+class RoundedView: UIView, ContinuousMaskLayer {
 
     override class var layerClass: AnyClass {
         return ContinuousMaskLayerView.self
@@ -21,7 +21,7 @@ class RoundedView: UIView, RoundedViewProtocol {
  * A button with rounded corners.
  */
 
-class RoundedButton: UIButton, RoundedViewProtocol {
+class RoundedButton: UIButton, ContinuousMaskLayer {
 
     override class var layerClass: AnyClass {
         return ContinuousMaskLayerButton.self
