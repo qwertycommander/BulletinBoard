@@ -38,6 +38,7 @@ protocol RoundedViewProtocol: NSObjectProtocol {
 //        }
 //    }
 //
+//
 //    private var roundedLayer: ContinuousMaskLayer {
 //        return layer as! ContinuousMaskLayer
 //    }
