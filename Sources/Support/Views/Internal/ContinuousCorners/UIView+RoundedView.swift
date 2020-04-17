@@ -9,7 +9,7 @@ import UIKit
  * A view with rounded corners.
  */
 
-class RoundedView: UIView {
+public class RoundedView: UIView {
 
     var optionalBackgroundView : UIView!
     
@@ -37,7 +37,7 @@ class RoundedView: UIView {
         self.layoutIfNeeded()
     }
     
-    override class var layerClass: AnyClass {
+    public override class var layerClass: AnyClass {
         return ContinuousMaskLayerView.self
     }
 
