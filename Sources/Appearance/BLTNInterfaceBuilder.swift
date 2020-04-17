@@ -123,7 +123,7 @@ import UIKit
         let wrapper = BLTNHighlightButtonWrapper(button: actionButton)
         wrapper.setContentHuggingPriority(.defaultLow, for: .horizontal)
 
-        let heightConstraint = wrapper.heightAnchor.constraint(equalToConstant: 55)
+        let heightConstraint = wrapper.heightAnchor.constraint(equalToConstant: 59)
         heightConstraint.priority = .defaultHigh
         heightConstraint.isActive = true
 
