@@ -34,6 +34,8 @@ public class RoundedView: UIView {
     
     public func setBackgroundView(view: UIView) {
         optionalBackgroundView = view
+        
+        optionalBackgroundView.layoutIfNeeded()
         self.layoutIfNeeded()
     }
     
