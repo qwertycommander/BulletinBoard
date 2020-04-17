@@ -412,7 +412,6 @@ extension BulletinViewController {
     fileprivate func updateCornerRadius() {
 
         if manager?.edgeSpacing.rawValue == 0 {
-            contentView.cornerRadius = 0
             return
         }
 

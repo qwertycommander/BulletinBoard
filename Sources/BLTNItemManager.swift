@@ -22,7 +22,7 @@ import UIKit
 @objc public final class BLTNItemManager: NSObject {
 
     /// Bulletin view controller.
-    fileprivate var bulletinController: BulletinViewController!
+    var bulletinController: BulletinViewController!
 
     // MARK: - Background
 
@@ -73,7 +73,7 @@ import UIKit
      * Set this value before presenting the bulletin. Changing it after will have no effect.
      */
 
-    @objc public var hidesHomeIndicator: Bool = false
+    @objc public var hidesHomeIndicator: Bool = true
 
     // MARK: - Card Presentation
 

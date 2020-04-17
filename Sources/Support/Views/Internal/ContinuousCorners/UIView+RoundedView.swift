@@ -11,6 +11,32 @@ import UIKit
 
 class RoundedView: UIView {
 
+    var optionalBackgroundView : UIView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        optionalBackgroundView = UIView()
+        optionalBackgroundView.backgroundColor = .clear
+        addSubview(optionalBackgroundView)
+        optionalBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+
+        optionalBackgroundView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0).isActive = true
+        optionalBackgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        optionalBackgroundView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        optionalBackgroundView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setBackgroundView(view: UIView) {
+        optionalBackgroundView = view
+        self.layoutIfNeeded()
+    }
+    
     override class var layerClass: AnyClass {
         return ContinuousMaskLayerView.self
     }
