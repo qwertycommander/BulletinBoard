@@ -9,7 +9,7 @@ import UIKit
  * A view controller that displays a card at the bottom of the screen.
  */
 
-final class BulletinViewController: UIViewController, UIGestureRecognizerDelegate {
+public final class BulletinViewController: UIViewController, UIGestureRecognizerDelegate {
 
     /// The object managing the view controller.
     weak var manager: BLTNItemManager?
@@ -82,12 +82,12 @@ final class BulletinViewController: UIViewController, UIGestureRecognizerDelegat
 
 extension BulletinViewController {
 
-    override func viewWillAppear(_ animated: Bool) {
+    public override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpLayout(with: traitCollection)
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
+    public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
         /// Animate status bar appearance when hiding
@@ -97,7 +97,7 @@ extension BulletinViewController {
 
     }
 
-    override func loadView() {
+    public override func loadView() {
 
         super.loadView()
         view.backgroundColor = .clear
@@ -189,7 +189,7 @@ extension BulletinViewController {
     }
 
     @available(iOS 11.0, *)
-    override func viewSafeAreaInsetsDidChange() {
+    public override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
         updateCornerRadius()
         setUpLayout(with: traitCollection)
@@ -237,7 +237,7 @@ extension BulletinViewController {
 
     // MARK: - Gesture Recognizer
 
-    internal func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         if touch.view?.isDescendant(of: contentView) == true {
             return false
         }
@@ -251,7 +251,7 @@ extension BulletinViewController {
 
 extension BulletinViewController {
 
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+    public override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
 
         coordinator.animate(alongsideTransition: { _ in
             self.setUpLayout(with: newCollection)
@@ -360,7 +360,7 @@ extension BulletinViewController {
 
     // MARK: - Accessibility
 
-    override func accessibilityPerformEscape() -> Bool {
+    public override func accessibilityPerformEscape() -> Bool {
         return dismissIfPossible()
     }
 
@@ -370,7 +370,7 @@ extension BulletinViewController {
 
 extension BulletinViewController {
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         if let manager = manager {
             switch manager.statusBarAppearance {
             case .lightContent:
@@ -385,16 +385,16 @@ extension BulletinViewController {
         return .default
     }
 
-    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+    public override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return manager?.statusBarAnimation ?? .fade
     }
 
-    override var prefersStatusBarHidden: Bool {
+    public override var prefersStatusBarHidden: Bool {
         return manager?.statusBarAppearance == .hidden
     }
 
     @available(iOS 11.0, *)
-    override var prefersHomeIndicatorAutoHidden: Bool {
+    public override var prefersHomeIndicatorAutoHidden: Bool {
         return manager?.hidesHomeIndicator ?? false
     }
 
@@ -505,15 +505,15 @@ extension BulletinViewController {
 
 extension BulletinViewController: UIViewControllerTransitioningDelegate {
 
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return BulletinPresentationAnimationController(style: manager?.backgroundViewStyle ?? .dimmed)
     }
 
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return BulletinDismissAnimationController()
     }
 
-    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning)
+    public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning)
         -> UIViewControllerInteractiveTransitioning? {
 
             guard manager?.allowsSwipeInteraction == true else {

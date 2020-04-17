@@ -20,7 +20,7 @@ class BulletinSwipeInteractionController: UIPercentDrivenInteractiveTransition, 
 
     private var isFinished = false
     private var currentPercentage: CGFloat = -1
-    private weak var viewController: BulletinViewController!
+    public weak var viewController: BulletinViewController!
 
     private var snapshotView: UIView? {
         return viewController.activeSnapshotView

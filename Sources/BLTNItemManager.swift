@@ -22,7 +22,7 @@ import UIKit
 @objc public final class BLTNItemManager: NSObject {
 
     /// Bulletin view controller.
-    var bulletinController: BulletinViewController!
+    public var bulletinController: BulletinViewController!
 
     // MARK: - Background
 
